@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="components/channel-pane.js"></script>
+</head>
+
+<body>
+    <channel-pane />
+    <section id="channelPane">
+        <ul>
+            <li data-direct-count="4">
+                <span>First subject</span>
+                <ul>
+                    <li data-direct-count="10"><i></i><span>Channel subject 1</span></li>
+                    <li data-indirect-count="1"><i></i><span>Channel subject 2</span></li>
+                    <li><span>Channel subject 3</span></li>
+                </ul>
+            </li>
+            <li>
+                <span>Second subject</span>
+                <ul>
+                    <li><span>Channel subject</span></li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+    <section id="focusPane">
+        <ul>
+            <li class="partial" data-percentage="8">
+                <i></i>
+                <span>Second subject first todo</span>
+                <ul>
+                    <li class="completed" data-mention-count="7"><i></i><span>Sub task 1</span></li>
+                    <li class="completed" data-mention-count="10"><i></i><span>Sub task 2</span></li>
+                    <li data-mention-count="4"><i></i><span>Sub task 3</span></li>
+                </ul>
+            </li>
+            <li class="partial" data-percentage="1">
+                <i></i>
+                <span>Second subject first todo</span>
+                <ul>
+                    <li class="completed" data-mention-count="1"><i></i><span>Sub task 1</span></li>
+                    <li data-mention-count="2"><i></i><span>Sub task 2</span></li>
+                    <li data-mention-count="2"><i></i><span>Sub task 3</span></li>
+                </ul>
+            </li>
+            <li class="completed" data-mention-count="2"><i></i><span>Second subject second todo</span></li>
+            <li data-mention-count="3"><i></i><span>Second subject third todo</span></li>
+            <li class="archived" data-mention-count="1"><i></i><span>Second subject forth todo</span></li>
+        </ul>
+    </section>
+    <section id="threadPane">
+        <div class="message">
+            <span class="profile profile-1"></span>
+            <p class="author">Somebody</p>
+            <p class="timestamp">11:00</p>
+            <p class="preview">Some message about Sub task 1 of Second subject first todo</p>
+            <div class="stats">
+                <span class="comments">3</span>
+                <span class="comments">2</span>
+                <span class="tasks">1</span>
+            </div>
+        </div>
+        <div class="message">
+            <span class="profile profile-1"></span>
+            <p class="author">Somebody</p>
+            <p class="timestamp">17:45</p>
+            <p class="preview">A question about second subject first todo</p>
+            <div class="stats">
+                <span class="comments">0</span>
+                <span class="documents">2</span>
+            </div>
+        </div>
+        <div class="message">
+            <span class="profile profile-2"></span>
+            <p class="author">Someone else</p>
+            <p class="timestamp">20:23</p>
+            <p class="preview">A long message about something. A long message about something. A long message about
+                something. A long message about something.</p>
+            <div class="stats">
+                <span class="comments">3</span>
+                <span class="tasks">2</span>
+            </div>
+        </div>
+    </section>
+    <section id="messagePane" data-active-tab="1">
+        <nav>
+            <ul>
+                <li onclick="this.parentNode.parentNode.parentNode.dataset.activeTab='1'">
+                    <span class="profile profile-1"></span><span class="profile profile-2"></span>
+                </li>
+                <li onclick="this.parentNode.parentNode.parentNode.dataset.activeTab='2'">
+                    <span class="profile profile-1"></span>
+                </li>
+            </ul>
+        </nav>
+        <article>
+            <div class="message">
+                <span class="profile profile-1"></span>
+                <p class="author">Somebody</p>
+                <p class="timestamp">11:00</p>
+                <p class="content">Some message about Sub task 1 of Second subject first todo</p>
+            </div>
+            <div class="message">
+                <span class="profile profile-2"></span>
+                <p class="author">Someone else</p>
+                <p class="timestamp">11:03</p>
+                <p class="content">An answer about things. An answer about things. An answer about things. An answer
+                    about things. An answer about things.</p>
+            </div>
+            <div class="message">
+                <span class="profile profile-1"></span>
+                <p class="author">Somebody</p>
+                <p class="timestamp">11:10</p>
+                <p class="content">Some question</p>
+            </div>
+            <div class="message">
+                <span class="profile profile-2"></span>
+                <p class="author">Someone else</p>
+                <p class="timestamp">11:19</p>
+                <p class="content">More answers. More answers. More answers. More answers. More answers.</p>
+            </div>
+        </article>
+        <article>
+            <div class="message">
+                <span class="profile profile-1"></span>
+                <p class="author">Somebody</p>
+                <p class="timestamp">11:00</p>
+                <p class="content">Some message about Sub task 1 of Second subject first todo</p>
+            </div>
+            <div class="message">
+                <span class="profile profile-1"></span>
+                <p class="author">Somebody</p>
+                <p class="timestamp">11:00</p>
+                <p class="content">Some message about Sub task 1 of Second subject first todo</p>
+            </div>
+            <div class="message">
+                <span class="profile profile-1"></span>
+                <p class="author">Somebody</p>
+                <p class="timestamp">11:00</p>
+                <p class="content">Some message about Sub task 1 of Second subject first todo</p>
+            </div>
+        </article>
+    </section>
+</body>
+
+</html>
