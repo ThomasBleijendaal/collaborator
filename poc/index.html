@@ -3,54 +3,77 @@
 
 <head>
     <link rel="stylesheet" href="style.css">
+    <script src="components/extensions.js"></script>
+    <script src="components/base-element.js"></script>
     <script src="components/channel-pane.js"></script>
+    <script src="components/task-pane.js"></script>
+    <script>
+        const page = {
+            subjects: [
+                {
+                    name: "First subject",
+                    channels: [
+                        { name: "Channel subject 1", direct: 10, active: true },
+                        { name: "Channel subject 2", indirect: 1 },
+                        { name: "Channel subject 3" }
+                    ]
+                },
+                {
+                    name: "Second subject",
+                    channels: [
+                        { name: "Channel subject", indirect: 1 }
+                    ]
+                }
+            ],
+            tasks: [
+                {
+                    name: "First subject first todo",
+                    mentions: 14,
+                    subTasks: [
+                        { name: "Sub task 1", completed: true, mentions: 7 },
+                        { name: "Sub task 2", completed: true, mentions: 10 },
+                        { name: "Sub task 3", mentions: 4 }
+                    ]
+                },
+                {
+                    name: "First subject second todo",
+                    mentions: 1,
+                    subTasks: [
+                        { name: "Sub task 1", completed: true, mentions: 1 },
+                        { name: "Sub task 2", mentions: 2 },
+                        { name: "Sub task 3", mentions: 1 }
+                    ]
+                },
+                {
+                    name: "First subject third todo",
+                    completed: true,
+                    mentions: 2
+                },
+                {
+                    name: "First subject forth todo",
+                    mentions: 2
+                },
+                {
+                    name: "First subject fifth todo",
+                    archived: true,
+                    mentions: 2
+                }
+            ]
+        }
+
+        window.addEventListener("load", (event) => {
+            let channelPane = document.querySelector("channel-pane");
+            channelPane.setSubjects(page.subjects);
+
+            let taskPane = document.querySelector("task-pane");
+            taskPane.setTasks(page.tasks);
+        });
+    </script>
 </head>
 
 <body>
-    <channel-pane />
-    <section id="channelPane">
-        <ul>
-            <li data-direct-count="4">
-                <span>First subject</span>
-                <ul>
-                    <li data-direct-count="10"><i></i><span>Channel subject 1</span></li>
-                    <li data-indirect-count="1"><i></i><span>Channel subject 2</span></li>
-                    <li><span>Channel subject 3</span></li>
-                </ul>
-            </li>
-            <li>
-                <span>Second subject</span>
-                <ul>
-                    <li><span>Channel subject</span></li>
-                </ul>
-            </li>
-        </ul>
-    </section>
-    <section id="focusPane">
-        <ul>
-            <li class="partial" data-percentage="8">
-                <i></i>
-                <span>Second subject first todo</span>
-                <ul>
-                    <li class="completed" data-mention-count="7"><i></i><span>Sub task 1</span></li>
-                    <li class="completed" data-mention-count="10"><i></i><span>Sub task 2</span></li>
-                    <li data-mention-count="4"><i></i><span>Sub task 3</span></li>
-                </ul>
-            </li>
-            <li class="partial" data-percentage="1">
-                <i></i>
-                <span>Second subject first todo</span>
-                <ul>
-                    <li class="completed" data-mention-count="1"><i></i><span>Sub task 1</span></li>
-                    <li data-mention-count="2"><i></i><span>Sub task 2</span></li>
-                    <li data-mention-count="2"><i></i><span>Sub task 3</span></li>
-                </ul>
-            </li>
-            <li class="completed" data-mention-count="2"><i></i><span>Second subject second todo</span></li>
-            <li data-mention-count="3"><i></i><span>Second subject third todo</span></li>
-            <li class="archived" data-mention-count="1"><i></i><span>Second subject forth todo</span></li>
-        </ul>
-    </section>
+    <channel-pane></channel-pane>
+    <task-pane></task-pane>
     <section id="threadPane">
         <div class="message">
             <span class="profile profile-1"></span>
